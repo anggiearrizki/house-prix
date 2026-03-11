@@ -21,6 +21,20 @@
 - [ ] `is_peak_season` = sale_month in {3,4,5,6,7} → spring/summer commands premium
 - [ ] Drop `yr_built`, `yr_renovated` after deriving these (raw years add noise)
 
+## -------- NOTES for report ----------
+BEFORE ADDING temporal features
+XGBoost MAPE: 12.54%
+Linear (Ridge) MAPE: 16.94%
+Gap: -4.40pp
+
+AFTER ADDING
+Best linear model : Ridge
+Linear Test MAPE  : 16.93%
+XGBoost Test MAPE : 12.60%
+Gap              : 4.32pp
+
+Not much change - time features not helping maybe because years dont vary much? confirm with EDA before making this statement in report
+
 **Size & Space features** (from `sqft_*`, `floors`, `bedrooms`, `bathrooms`)
 - [ ] `log_sqft_living`, `log_sqft_lot` — both are right-skewed, log linearises vs price
 - [ ] `sqft_per_bedroom = sqft_living / bedrooms` — spaciousness proxy
